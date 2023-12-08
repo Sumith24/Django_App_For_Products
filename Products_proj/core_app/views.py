@@ -40,12 +40,9 @@ def view_product(request, product_id):
 
 
 # Edit product
-def edit_product(request):
+def edit_product(request, product_id):
     if request.method == 'POST':
-        print("hello.........1")
         product = Products.objects.get(id = request.POST.get('id'))
-        print("hello.........2")
-        print(f"Name........................{product.product}")
         if product != None:
             product.product = request.POST.get('product')
             product.purchase = request.POST.get('purchase')
@@ -54,10 +51,10 @@ def edit_product(request):
             product.gender = request.POST.get('gender')
             product.note = request.POST.get('note')
             product.save()
-
             return HttpResponseRedirect('/')
     else:
-        return render(request, 'edit.html')
+        product = Products.objects.get(id = product_id)
+        return render(request, 'edit.html' {'product':product})
 
 # Delete product
 def delete_product(request, product_id):

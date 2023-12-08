@@ -33,7 +33,7 @@
                 <td>{{product.gender}}</td>
                 <td>{{product.created_at  | date:'m/d/y (H:i)' }}</td>
                 <td>
-                    <a href="{% url 'edit-product' %}" class="btn btn-warning" title="Edit Product">
+                    <a href="{% url 'edit-product' product.id %}" class="btn btn-warning" title="Edit Product">
                         <i class="fas fa-pen"></i>
 
                     </a>
