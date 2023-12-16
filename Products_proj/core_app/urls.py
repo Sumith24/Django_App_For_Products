@@ -11,7 +11,7 @@ urlpatterns = [
     path('product/<str:product_id>/',views.view_product, name='view-product'),
 
     # edit product
-    path('edit_product/',views.edit_product, name='edit-product'),
+    path('edit_product/<str:product_id>/',views.edit_product, name='edit-product'),
 
     # delete product
     path('delete_product/<str:product_id>/',views.delete_product, name='delete-product'),

@@ -54,7 +54,7 @@ def edit_product(request, product_id):
             return HttpResponseRedirect('/')
     else:
         product = Products.objects.get(id = product_id)
-        return render(request, 'edit.html' {'product':product})
+        return render(request, 'edit.html', {'product':product})
 
 # Delete product
 def delete_product(request, product_id):
